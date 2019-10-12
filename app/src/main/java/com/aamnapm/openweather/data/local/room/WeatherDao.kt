@@ -1,7 +1,7 @@
 package com.aamnapm.openweather.data.local.room
 
 import androidx.room.*
-import com.aamnapm.openweather.data.model.WeatherEntity
+import com.aamnapm.openweather.model.WeatherEntity
 
 
 @Dao

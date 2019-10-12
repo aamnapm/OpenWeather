@@ -3,7 +3,7 @@ package com.aamnapm.openweather.ui.activity.main
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.aamnapm.openweather.data.api.CurrentWeatherApi
-import com.aamnapm.openweather.data.model.CurrentWeather
+import com.aamnapm.openweather.model.CurrentWeather
 import com.aamnapm.openweather.utils.api.apikotlin.ApiResponse
 import com.aamnapm.openweather.utils.api.apikotlin.ApiSuccessResponse
 

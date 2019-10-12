@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="textView">
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:padding">@dimen/margin_8</item>
+        <item name="android:textColor">@color/navy_blue</item>
+        <item name="android:textSize">@dimen/font_18</item>
+    </style>
+
 </resources>

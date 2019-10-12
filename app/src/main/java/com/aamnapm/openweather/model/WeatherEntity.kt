@@ -1,4 +1,4 @@
-package com.aamnapm.openweather.data.model
+package com.aamnapm.openweather.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
