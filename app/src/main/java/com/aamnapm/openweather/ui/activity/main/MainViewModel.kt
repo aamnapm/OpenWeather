@@ -11,10 +11,6 @@ class MainViewModel(
     val sharedPreferencesManager: SharedPreferencesManager
 ) : ViewModel() {
 
-    init {
-
-    }
-
 
     fun callCurrentWeatherApi() {
 
@@ -28,9 +24,6 @@ class MainViewModel(
                         "ViewModel",
                         "Response success name " + response.body.name + " weather " + response.body.weather
                     )
-
-                    sharedPreferencesManager.setToken(response.body.name)
-                    Log.e("MainViewModel", "sharedPref " + sharedPreferencesManager.getToken())
                 }
             }
         }

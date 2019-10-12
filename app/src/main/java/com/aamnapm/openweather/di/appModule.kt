@@ -5,6 +5,7 @@ import com.aamnapm.openweather.data.local.sharedprefrence.SharedPreferencesManag
 import com.aamnapm.openweather.ui.activity.main.MainRepository
 import com.aamnapm.openweather.ui.activity.main.MainRepositoryImpl
 import com.aamnapm.openweather.ui.activity.main.MainViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,13 +15,13 @@ import org.koin.dsl.module
  */
 val appModule = module {
 
-    single { SharedPreferencesManager(get()) }
-
     single { AppController() }
+
+    single { SharedPreferencesManager(androidApplication()) }
 
     factory<MainRepository> { MainRepositoryImpl(get()) }
 
-    viewModel { MainViewModel(get(),get()) }
+    viewModel { MainViewModel(get(), get()) }
 
 //    factory<SplashRepository> { SplashRepositoryImpl(get) }
 //    viewModel { SplashViewModel(get()) }

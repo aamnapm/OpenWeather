@@ -21,7 +21,7 @@ class MainActivity() : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-//        mainViewModel.callCurrentWeatherApi()
+        mainViewModel.callCurrentWeatherApi()
         Log.e("MainActivity","Main")
     }
 }

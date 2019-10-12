@@ -1,18 +1,20 @@
 package com.aamnapm.openweather.data.local.sharedprefrence
 
+import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.aamnapm.openweather.config.AppController
 
 
-class SharedPreferencesManager(val appController: AppController) {
+class SharedPreferencesManager(val app: Application) {
 
 
-    private val APP_SETTINGS = "BDOODKAR_APP_SETTINGS"
-    private var sharedPreferences: SharedPreferences
+    val APP_SETTINGS = "WEATHER_APP_SETTINGS"
+    var sharedPreferences: SharedPreferences
 
     init {
-        sharedPreferences = appController.getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE)
+        sharedPreferences = app.getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE)
     }
 
     private val ROLE = "ROLE"
