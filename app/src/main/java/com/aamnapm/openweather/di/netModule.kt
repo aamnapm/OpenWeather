@@ -8,14 +8,12 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun netModule(baseUrl: String) = module {
+val netModule = module {
 
     single {
-        HttpLoggingInterceptor(
-            HttpLoggingInterceptor.Logger { message ->
-                //                Logger.d("NETWORK: $message")
-            }).apply {
-            level = HttpLoggingInterceptor.Level.NONE
+
+        HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.HEADERS
         }
     }
 
@@ -28,7 +26,7 @@ fun netModule(baseUrl: String) = module {
     single {
         Retrofit.Builder()
             .client(get())
-            .baseUrl(baseUrl)
+            .baseUrl("http://api.openweathermap.org")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()

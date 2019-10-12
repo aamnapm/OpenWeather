@@ -17,15 +17,7 @@ class SharedPreferencesManager(val app: Application) {
         sharedPreferences = app.getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE)
     }
 
-    private val ROLE = "ROLE"
-    private val UUID = "UUID"
     private val TOKEN = "TOKEN"
-    private val EXPIRE_IN = "EXPIRE_IN"
-    private val USER_NAME = "USER_NAME"
-    private val USER_IMAGE = "USER_IMAGE"
-    private val HELPER_UUID = "HELPER_UUID "
-    private val REFRESH_TOKEN = "REFRESH_TOKEN"
-    private val USER_NAME_HELPER = "USER_NAME_HELPER"
 
 
     /**
