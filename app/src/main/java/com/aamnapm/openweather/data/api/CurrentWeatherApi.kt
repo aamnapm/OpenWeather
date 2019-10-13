@@ -2,7 +2,6 @@ package com.aamnapm.openweather.data.api
 
 import androidx.lifecycle.LiveData
 import com.aamnapm.openweather.model.CurrentWeather
-
 import com.aamnapm.openweather.utils.api.apikotlin.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

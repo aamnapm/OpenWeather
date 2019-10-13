@@ -23,8 +23,9 @@ class SelectCityFragment : Fragment() {
         val binding: FragmentSelectCityBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_select_city, container, false)
 
-        binding.btnSubmit.setOnClickListener{
-                view:View-> Navigation.findNavController(view).navigate(R.id.action_selectCityFragment_to_weatherFragment)
+        binding.btnSubmit.setOnClickListener { view: View ->
+            Navigation.findNavController(view)
+                .navigate(R.id.action_selectCityFragment_to_weatherFragment)
         }
 
         return binding.root

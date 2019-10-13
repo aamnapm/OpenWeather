@@ -22,7 +22,7 @@ class MainViewModel(
 
                     Log.e(
                         "ViewModel",
-                        "Response success name " + response.body.name + " weather " + response.body.weather
+                        "Response success name " + sharedPreferencesManager.getCityName()
                     )
                 }
             }
