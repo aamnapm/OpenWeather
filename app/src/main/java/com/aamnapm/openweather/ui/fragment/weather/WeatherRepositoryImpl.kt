@@ -9,18 +9,24 @@ import com.aamnapm.openweather.utils.api.apikotlin.ApiResponse
 import com.aamnapm.openweather.utils.api.apikotlin.ApiSuccessResponse
 
 
-class WeatherRepositoryImpl(val currentWeatherApi: CurrentWeatherApi, val sharedPreferencesManager: SharedPreferencesManager) : WeatherRepository {
+class WeatherRepositoryImpl(
+    val currentWeatherApi: CurrentWeatherApi,
+    val sharedPreferencesManager: SharedPreferencesManager
+) : WeatherRepository {
 
 
-    override fun callCurrentWeatherApi(token: String): LiveData<ApiResponse<CurrentWeather>> {
+    override fun callCurrentWeatherApi(
+        units: String,
+        city: String,
+        token: String
+    ): LiveData<ApiResponse<CurrentWeather>> {
 
-        val apiResponse = currentWeatherApi.currentWeather(token)
+        val apiResponse = currentWeatherApi.currentWeather(units,city, token)
 
         apiResponse.observeForever { response ->
             when (response) {
                 is ApiSuccessResponse -> {
                     sharedPreferencesManager.setCityName(response.body.name)
-                    Log.e("MainRepositoryImpl", "response success " + response.body.name)
                 }
             }
         }

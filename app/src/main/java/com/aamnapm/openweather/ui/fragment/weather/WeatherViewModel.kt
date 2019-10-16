@@ -43,18 +43,16 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel() {
         get() = _cityDate
 
 
-
-
     /**
      * call api and  wait for response
      */
-    fun callCurrentWeatherApi(city: String) {
+    fun callCurrentWeatherApi(units: String, city: String) {
 
         //update ui
         onLoading.value = true
 
         var response =
-            weatherRepository.callCurrentWeatherApi("0a73c3a66de1a0f4cc2597d2801582b4")
+            weatherRepository.callCurrentWeatherApi(units, city, "0a73c3a66de1a0f4cc2597d2801582b4")
 
         response.observeForever {
 

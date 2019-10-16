@@ -17,6 +17,10 @@
         android:label="WeatherFragment" >
 
         <argument
+            android:name="units"
+            app:argType="string" />
+
+        <argument
             android:name="city"
             app:argType="string" />
     </fragment>

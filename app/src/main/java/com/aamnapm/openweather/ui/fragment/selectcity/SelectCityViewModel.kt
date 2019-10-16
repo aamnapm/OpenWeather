@@ -5,6 +5,19 @@ import androidx.lifecycle.ViewModel
 
 class SelectCityViewModel() : ViewModel() {
 
+    var kelvin: Boolean = false
+        set(value) {
+            field = value
+        }
+    var celsius: Boolean = true
+        set(value) {
+            field = value
+        }
+
+    var fahrenheit: Boolean = false
+        set(value) {
+            field = value
+        }
     var cityName: String = ""
 
     /**

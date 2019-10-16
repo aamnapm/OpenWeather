@@ -35,7 +35,7 @@ class WeatherFragment : Fragment() {
         binding.viewModel = weatherViewModel
 
         //call api
-        weatherViewModel.callCurrentWeatherApi(arg?.city.toString())
+        weatherViewModel.callCurrentWeatherApi(arg?.units.toString(),arg?.city.toString())
 
         weatherViewModel.successResponse.observe(this, Observer {
             Log.e("WeatherFragment", "successResponse " + it)
