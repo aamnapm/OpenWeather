@@ -1,9 +1,10 @@
 package com.aamnapm.openweather.ui.activity.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.aamnapm.openweather.R
 import com.aamnapm.openweather.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        val navController = this.findNavController(R.id.weather_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
-        mainViewModel.callCurrentWeatherApi()
-        Log.e("MainActivity", "Main")
     }
 }

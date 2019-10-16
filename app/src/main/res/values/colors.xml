@@ -7,8 +7,18 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
 
-    <color name="blue">#1089ff</color>
-    <color name="gray">#e5e5e5</color>
+    <color name="blue">#00b0ff</color>
+    <color name="light_blue">#69e2ff</color>
+    <color name="dark_blue">#0081cb</color>
     <color name="navy_blue">#23374d</color>
-    <color name="light_gray">#eeeeee</color>
+
+    <color name="gray">#b0bec5</color>
+    <color name="light_gray">#e2f1f8</color>
+    <color name="dark_gray">#808e95</color>
+
+    <color name="red">#f44336</color>
+    <color name="light_red">#ff7961</color>
+    <color name="dark_red">#ba000d</color>
+
+    <color name="app_background">#eeeeee</color>
 </resources>

@@ -1,8 +1,11 @@
 package com.aamnapm.openweather.model
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
-data class CurrentWeather (
+
+
+data class CurrentWeather(
 
     @SerializedName("coord")
     val coord: Coord,

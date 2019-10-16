@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/selectCityFragment"
-        android:name="com.aamnapm.openweather.ui.fragment.SelectCityFragment"
+        android:name="com.aamnapm.openweather.ui.fragment.selectcity.SelectCityFragment"
         android:label="SelectCityFragment" >
         <action
             android:id="@+id/action_selectCityFragment_to_weatherFragment"
@@ -13,6 +13,15 @@
     </fragment>
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.aamnapm.openweather.ui.fragment.WeatherFragment"
-        android:label="WeatherFragment" />
+        android:name="com.aamnapm.openweather.ui.fragment.weather.WeatherFragment"
+        android:label="WeatherFragment" >
+
+        <argument
+            android:name="city"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.aamnapm.openweather.ui.fragment.about.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

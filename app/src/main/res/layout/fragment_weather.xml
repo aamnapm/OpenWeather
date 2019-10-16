@@ -5,17 +5,20 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.aamnapm.openweather.ui.fragment.weather.WeatherViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue"
+        android:background="@color/app_background"
         tools:context=".ui.activity.splash.SplashActivity">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/today_weather"
+            android:id="@+id/layout_today_weather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16"
@@ -23,6 +26,7 @@
             android:layout_marginEnd="@dimen/margin_16"
             android:background="@drawable/background_layout_city_detaile"
             android:padding="@dimen/margin_16"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,6 +36,8 @@
                 style="@style/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.cityName}"
+                android:textColor="@color/navy_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,6 +49,7 @@
                 android:layout_marginTop="@dimen/margin_16"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="@dimen/margin_8"
+                android:text="@{viewModel.cityTemperature}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="@dimen/margin_8"
+                android:text="@{viewModel.cityWeather}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 app:layout_constraintEnd_toStartOf="@id/txt_city_temperature"
@@ -67,21 +75,21 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="@dimen/margin_8"
+                android:text="@{viewModel.cityDate}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txt_city_temperature"
                 app:layout_constraintTop_toBottomOf="@+id/txt_city_name" />
 
-            <Button
+            <TextView
                 android:id="@+id/txt_city_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16"
-                android:background="@drawable/background_btn_more"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/more"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/font_16"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_city_weather" />
@@ -90,6 +98,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16"
@@ -97,9 +106,10 @@
             android:layout_marginEnd="@dimen/margin_16"
             android:background="@drawable/background_layout_city_detaile"
             android:padding="@dimen/margin_16"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/today_weather">
+            app:layout_constraintTop_toBottomOf="@+id/layout_today_weather">
 
             <TextView
                 android:id="@+id/txt_city_history"
@@ -123,6 +133,19 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/prg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16"
+            android:indeterminateDrawable="@drawable/background_progress_bar"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

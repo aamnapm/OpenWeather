@@ -13,6 +13,7 @@ import com.aamnapm.openweather.ui.activity.main.MainActivity
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var activity: Activity
+
     private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +25,9 @@ class SplashActivity : AppCompatActivity() {
         binding.title = getString(R.string.welcome)
 
         Handler().postDelayed(Runnable {
-            intent= Intent(activity, MainActivity::class.java)
+            intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },2000)
+        }, 2000)
     }
 }
