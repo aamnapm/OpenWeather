@@ -42,10 +42,7 @@ class SelectCityFragment : Fragment() {
                 .navigate(
                     SelectCityFragmentDirections.actionSelectCityFragmentToWeatherFragment
                         (selectCityViewModel.cityName)
-
                 )
-            Log.e("Select", "text " + binding.edtCityName.text)
-            Log.e("Select", "cityName " + selectCityViewModel.cityName)
         }
 
         return binding.root

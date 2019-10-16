@@ -1,4 +1,8 @@
 package com.aamnapm.openweather
 
-class WeatherViewModelUnitTest {
+import org.koin.test.KoinTest
+
+class WeatherViewModelUnitTest : KoinTest {
+
+
 }
