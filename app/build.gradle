@@ -55,7 +55,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //koin
-    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-scope:${koin_version}"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     implementation "org.koin:koin-androidx-ext:$koin_version"
 
@@ -65,12 +65,12 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
 
     //coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
 
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:retrofit:2.6.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.2"
 
     // okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
@@ -78,7 +78,7 @@ dependencies {
 
     //lifecycle-extensions
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
 
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
