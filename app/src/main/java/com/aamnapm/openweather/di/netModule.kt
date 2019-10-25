@@ -1,6 +1,7 @@
 package com.aamnapm.openweather.di
 
 import LiveDataCallAdapterFactory
+import com.aamnapm.openweather.data.api.CheckCityApi
 import com.aamnapm.openweather.data.api.CurrentWeatherApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,4 +34,5 @@ val netModule = module {
     }
 
     single { get<Retrofit>().create(CurrentWeatherApi::class.java) }
+    single { get<Retrofit>().create(CheckCityApi::class.java) }
 }

@@ -35,7 +35,7 @@ class WeatherFragment : Fragment() {
         binding.viewModel = weatherViewModel
 
         //call api
-        weatherViewModel.callCurrentWeatherApi(arg?.units.toString(),arg?.city.toString())
+        weatherViewModel.callCurrentWeatherApi(arg?.units.toString(), arg?.city.toString())
 
         weatherViewModel.successResponse.observe(this, Observer {
             Log.e("WeatherFragment", "successResponse " + it)
@@ -53,7 +53,7 @@ class WeatherFragment : Fragment() {
                 binding.layoutTodayWeather.visibility = View.INVISIBLE
             } else {
                 binding.prg.visibility = View.INVISIBLE
-                binding.layoutHistory.visibility = View.VISIBLE
+//                binding.layoutHistory.visibility = View.VISIBLE
                 binding.layoutTodayWeather.visibility = View.VISIBLE
             }
         })

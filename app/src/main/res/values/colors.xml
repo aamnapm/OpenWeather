@@ -20,5 +20,12 @@
     <color name="light_red">#ff7961</color>
     <color name="dark_red">#ba000d</color>
 
-    <color name="app_background">#eeeeee</color>
+    <color name="app_background">#f7f7f7</color>
+    <color name="green">#64DD17</color>
+
+    <color name="transparent_50">#50FFFFFF</color>
+
+    <color name="transparent_80">#80FFFFFF</color>
+
+
 </resources>

@@ -34,6 +34,14 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel() {
     val cityTemperature: MutableLiveData<String>
         get() = _cityTemperature
 
+    private val _cityTemperatureMin = MutableLiveData<String>()
+    val cityTemperatureMin: MutableLiveData<String>
+        get() = _cityTemperatureMin
+
+    private val _cityTemperatureMax = MutableLiveData<String>()
+    val cityTemperatureMax: MutableLiveData<String>
+        get() = _cityTemperatureMax
+
     private val _cityWeather = MutableLiveData<String>()
     val cityWeather: MutableLiveData<String>
         get() = _cityWeather
@@ -63,9 +71,9 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel() {
 
                     //set data on view
                     _cityName.value = it.body.name
-                    _cityDate.value = "tempMax: ${it.body.main.tempMax}"
-                    _cityWeather.value = "tempMin: ${it.body.main.tempMin}"
-                    _cityTemperature.value = "pressure : ${it.body.main.pressure}"
+                    _cityTemperature.value = "${it.body.main.temp.toInt()}"
+                    _cityTemperatureMax.value = "${it.body.main.tempMax.toInt()}"
+                    _cityTemperatureMin.value = "/ ${it.body.main.tempMin.toInt()}"
 
 
                     successResponse.value = it.body

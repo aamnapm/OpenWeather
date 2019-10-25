@@ -13,4 +13,5 @@
     <string name="kelvin">Kelvin</string>
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
+    <string name="city_not_found">city not found</string>
 </resources>

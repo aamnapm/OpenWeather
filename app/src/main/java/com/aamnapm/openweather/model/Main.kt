@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class Main(
 
     @SerializedName("temp")
-    val lon: Float,
+    val temp: Float,
 
     @SerializedName("pressure")
     val pressure: Int,

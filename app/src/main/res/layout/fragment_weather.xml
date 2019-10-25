@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/app_background"
+        android:background="@drawable/background_weather"
         tools:context=".ui.activity.splash.SplashActivity">
 
 
@@ -24,76 +24,99 @@
             android:layout_marginStart="@dimen/margin_16"
             android:layout_marginTop="@dimen/margin_16"
             android:layout_marginEnd="@dimen/margin_16"
-            android:background="@drawable/background_layout_city_detaile"
             android:padding="@dimen/margin_16"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/txt_city_name"
-                style="@style/textView"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.cityName}"
-                android:textColor="@color/navy_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/txt_city_temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:padding="@dimen/margin_8"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:fontFamily="sans-serif-smallcaps"
+                android:paddingStart="@dimen/margin_8"
+                android:paddingEnd="@dimen/margin_8"
                 android:text="@{viewModel.cityTemperature}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_18"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_46"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_city_name" />
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
-                android:id="@+id/txt_city_weather"
+                android:id="@+id/txt_city_temperature_max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:padding="@dimen/margin_8"
-                android:text="@{viewModel.cityWeather}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_18"
-                app:layout_constraintEnd_toStartOf="@id/txt_city_temperature"
+                android:padding="@dimen/margin_4"
+                android:text="@{viewModel.cityTemperatureMax}"
+                android:textColor="@color/transparent_80"
+                android:textSize="@dimen/font_28"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_city_name" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_city_temperature" />
+
 
             <TextView
-                android:id="@+id/txt_city_date"
+                android:id="@+id/txt_city_temperature_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:padding="@dimen/margin_8"
-                android:text="@{viewModel.cityDate}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_18"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txt_city_temperature"
-                app:layout_constraintTop_toBottomOf="@+id/txt_city_name" />
+                android:padding="@dimen/margin_4"
+                android:text="@{viewModel.cityTemperatureMin}"
+                android:textColor="@color/transparent_80"
+                android:textSize="@dimen/font_28"
+                app:layout_constraintStart_toEndOf="@+id/txt_city_temperature_max"
+                app:layout_constraintTop_toBottomOf="@+id/txt_city_temperature" />
 
-            <TextView
-                android:id="@+id/txt_city_more"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="@string/more"
-                android:textColor="@color/blue"
-                android:textSize="@dimen/font_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:background="@drawable/background_layout_location"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_city_weather" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_city_temperature_min">
 
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:src="@drawable/ic_location"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/txt_city_name"
+                    style="@style/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center"
+                    android:text="@={viewModel.cityName}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_14"
+                    tools:ignore="RtlCompat" />
+
+
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

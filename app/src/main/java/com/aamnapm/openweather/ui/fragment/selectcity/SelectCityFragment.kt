@@ -35,6 +35,23 @@ class SelectCityFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
 
+        selectCityViewModel.isCityAvailable.observe(this, Observer {
+            if (it) {
+                binding.edtCityName.setBackgroundResource(R.drawable.background_edt_city_success)
+            } else {
+                binding.edtCityName.setError(getString(R.string.city_not_found))
+                binding.edtCityName.setBackgroundResource(R.drawable.background_edt_city_error)
+            }
+        })
+
+
+        selectCityViewModel.cityName.observe(this, Observer {
+            if (it.equals("") || it.equals(" ") || it == null) {
+                binding.edtCityName.setError(getString(R.string.city_not_found))
+            }
+        })
+
+
         /**
          * navigate to WeatherFragment with cityName
          */
@@ -42,7 +59,10 @@ class SelectCityFragment : Fragment() {
             findNavController()
                 .navigate(
                     SelectCityFragmentDirections.actionSelectCityFragmentToWeatherFragment
-                        (selectCityViewModel.cityName,selectCityViewModel.cityName)
+                        (
+                        selectCityViewModel.temperature,
+                        selectCityViewModel.cityName.value.toString()
+                    )
                 )
         }
 

@@ -21,7 +21,7 @@ class WeatherRepositoryImpl(
         token: String
     ): LiveData<ApiResponse<CurrentWeather>> {
 
-        val apiResponse = currentWeatherApi.currentWeather(units,city, token)
+        val apiResponse = currentWeatherApi.currentWeather(city, units, token)
 
         apiResponse.observeForever { response ->
             when (response) {

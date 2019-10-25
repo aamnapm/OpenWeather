@@ -5,5 +5,5 @@ import com.aamnapm.openweather.model.CurrentWeather
 import com.aamnapm.openweather.utils.api.apikotlin.ApiResponse
 
 interface SelectCityRepository {
-    fun callCurrentWeatherApi(token: String): LiveData<ApiResponse<CurrentWeather>>
+    fun callCurrentWeatherApi(city: String,token: String): LiveData<ApiResponse<CurrentWeather>>
 }

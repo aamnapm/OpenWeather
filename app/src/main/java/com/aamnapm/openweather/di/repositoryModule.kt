@@ -12,7 +12,7 @@ val repositoryModule = module {
 
     factory<MainRepository> { MainRepositoryImpl() }
 
-    factory<SelectCityRepository> { SelectCityRepositoryImpl() }
+    factory<SelectCityRepository> { SelectCityRepositoryImpl(get()) }
 
     factory<WeatherRepository> { WeatherRepositoryImpl(get(), get()) }
 

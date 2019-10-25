@@ -10,7 +10,7 @@ val viewModelModule = module {
 
     viewModel { MainViewModel() }
 
-    viewModel { SelectCityViewModel() }
+    viewModel { SelectCityViewModel(get()) }
 
     viewModel { WeatherViewModel(get()) }
 
