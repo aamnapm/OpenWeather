@@ -1,3 +1,5 @@
+package com.aamnapm.openweather.utils.api.apikotlin
+
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType

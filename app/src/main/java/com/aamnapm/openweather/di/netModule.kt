@@ -1,8 +1,9 @@
 package com.aamnapm.openweather.di
 
-import LiveDataCallAdapterFactory
+
 import com.aamnapm.openweather.data.api.CheckCityApi
 import com.aamnapm.openweather.data.api.CurrentWeatherApi
+import com.aamnapm.openweather.utils.api.apikotlin.LiveDataCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

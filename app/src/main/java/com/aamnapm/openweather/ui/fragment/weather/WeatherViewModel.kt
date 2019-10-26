@@ -57,7 +57,7 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel() {
     fun callCurrentWeatherApi(units: String, city: String) {
 
         //update ui
-        onLoading.value = true
+//        onLoading.value = true
 
         var response =
             weatherRepository.callCurrentWeatherApi(units, city, "0a73c3a66de1a0f4cc2597d2801582b4")
@@ -65,7 +65,7 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel() {
         response.observeForever {
 
             //update ui
-            onLoading.value = false
+//            onLoading.value = false
             when (it) {
                 is ApiSuccessResponse<CurrentWeather> -> {
 

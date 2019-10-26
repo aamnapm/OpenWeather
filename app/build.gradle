@@ -10,6 +10,18 @@ apply plugin: 'androidx.navigation.safeargs'
 
 apply plugin: 'kotlinx-serialization'
 
+apply plugin: 'jacoco'
+
+
+jacoco {
+    toolVersion = "0.8.1"
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -26,6 +38,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            testCoverageEnabled true
+        }
     }
     dataBinding {
         enabled = true
@@ -34,6 +50,17 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
+
 
 }
 
@@ -48,6 +75,21 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.13.0' // JVM dependency
+
+    //Koin Dependency Test
+    testImplementation 'org.koin:koin-test:2.0.1'
+
+    //Mock-Server
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.0.0'
+
+/*    //Runner Test
+    androidTestImplementation 'androidx.test:runner:1.2.0'*/
+
+//    testImplementation 'androidx.test:core:1.2.0'
+
+    //LifeCycle Test
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    implementation 'androidx.arch.core:core-runtime:2.1.0'
 
 
     //test
@@ -91,3 +133,42 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
 }
+
+
+
+
+task fullCoverageReport(type: JacocoReport) {
+    dependsOn 'createDebugCoverageReport'
+    dependsOn 'testDebugUnitTest'
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*',
+                      '**/*Test*.*', 'android/**/*.*',
+                      '**/*_MembersInjector.class',
+                      '**/Dagger*Component.class',
+                      '**/Dagger*Component$Builder.class',
+                      '**/*_*Factory.class',
+                      '**/*ComponentImpl.class',
+                      '**/*SubComponentBuilder.class']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ])
+}
+
+// we need all open to run tests which  a we enable only for debug builds.
+project.tasks.whenTaskAdded {
+    if (it.name == "testReleaseUnitTest") {
+        it.enabled = false
+    }
+}
+
+

@@ -1,3 +1,5 @@
+package com.aamnapm.openweather.utils.api.apikotlin
+
 import androidx.lifecycle.LiveData
 import com.aamnapm.openweather.utils.api.apikotlin.ApiResponse
 import com.aamnapm.openweather.utils.api.apikotlin.UNKNOWN_CODE
